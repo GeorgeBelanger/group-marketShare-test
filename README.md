@@ -25,5 +25,13 @@
       -- I get an error that says "Please enter the key used to encrypt the database" when I try to upload the CSV to DB Browser
       - Googled turning a CSV into an sqlite database in python and got this thread on Stack Overflow: [https://stackoverflow.com/questions/2887878/importing-a-csv-file-into-a-sqlite3-database-table-using-python](https://stackoverflow.com/questions/2887878/importing-a-csv-file-into-a-sqlite3-database-table-using-python)
       - I made a new file named csv-into-sqlite3.py and pasted the first answer and changed table name from 't' to 'brokers', changed the file name to reflect the csv and changed the column names to reflect the columns. 
-      - Now I have to run the file. To call python It has to be in my path. Right now I have to run `C:\Python34\python --version` to use the command. I added `C:\Python34` to my path and now I can start a python instance in terminal. 
-      - In my python terminal I will try running the path of the python file that creates our database from csv. 
+      - Now I have to run the file. To call python It has to be in my path. Right now I have to run `C:\Python34\python --version` to use the command. I added `C:\Python34` to my path.
+      - I got EOL for a syntax error, file not found for a path error, and now '_csv.Error: iterator should return strings, not bytes (did you open the file in text mode?)'
+      - I see this is because I used 'rb' in my script. I thought it meant ruby at first but now I see I should use rt for text instead of bytes. 
+      - I get error 'sqlite3.OperationalError: 2 values for 19 columns' And am adding more ? marks. I know this is used to protect against sql injection. 
+        - Glad to know that csv.py is in the default library. 
+        - I checked and sqlite3 is a folder in the default library as well.
+      - I run the script and get no output which I know is a good thing. I am not sure where my file is though. 
+        - Realizing that this is because the connection I am using is `:memory:` and should be a file. I am using 'example.db'
+        - This creates a file, but the file is in binary. VS Code is recommending an extension to open it with and I downloaded the SQLite extension. 
+
