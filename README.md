@@ -6,6 +6,8 @@
 
 *Wasn't sure if you wanted a Python OOP approach to create the results but I decided to use raw SQL inside of python*
 
+**To improve, I would have 1. done a Python OOP approach, 2. Used regex to identify the small differences between same records like corp vs corp. and 3. used d3.js to visualize the data.**
+
 ## Notes and dev log below
   Here is the original text from the email:
 
