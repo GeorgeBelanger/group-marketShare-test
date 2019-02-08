@@ -1,6 +1,12 @@
 # Group MarketShare Test
 
 ## To run this repo, you must have python installed and run `python csv-into-sqlite3.py` before you can run `python print-grouped-by-address-and-name-us.py` or `print-grouped-by-address-and-name-foreign.py` to print the grouped results to the terminal. Didn't know what file format you wanted.
+
+**The method I used here was to group the two results by FORM_ID, ROW_ORDER, NAME, ADDRESS1, ADDRESS2, CITY, STATE, & ZIP and then sorting by the count to tell which were double reported and which had small entry errors, such as 1ST CAPITAL CORP and 1ST CAPITAL CORPORATION or SUITE 1200 and STE 1200.**
+
+*Wasn't sure if you wanted a Python OOP approach to create the results but I decided to use raw SQL inside of python*
+
+## Notes and dev log below
   Here is the original text from the email:
 
 >    Thank you for your time today.  As a next step can you please take a stab at the following coding test?  
@@ -154,3 +160,4 @@
       
 
     
+The method I used here was to group the two results by FORM_ID, ROW_ORDER, NAME, ADDRESS1, ADDRESS2, CITY, STATE, & ZIP and then sorting by the count to tell which were double reported and which had small entry errors, such as 1ST CAPITAL CORP and 1ST CAPITAL CORPORATION or SUITE 1200 and STE 1200. 
