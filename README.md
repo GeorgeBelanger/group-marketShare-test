@@ -1,6 +1,6 @@
 # Group MarketShare Test
 
-## To run this repo, you must have python installed and run `python csv-into-sqlite3.py` before you can print the results.
+## To run this repo, you must have python installed and run `python csv-into-sqlite3.py` before you can run `python print-grouped-by-address-and-name-us.py` or `print-grouped-by-address-and-name-foreign.py` to print the grouped results to the terminal. Didn't know what file format you wanted.
   Here is the original text from the email:
 
 >    Thank you for your time today.  As a next step can you please take a stab at the following coding test?  
