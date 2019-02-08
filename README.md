@@ -1,4 +1,6 @@
 # Group MarketShare Test
+
+## To run this repo, you must have python installed and run `python csv-into-sqlite3.py` before you can print the results.
   Here is the original text from the email:
 
 >    Thank you for your time today.  As a next step can you please take a stab at the following coding test?  
@@ -95,5 +97,60 @@
       ```
       - But I also notice that the differences between SUITE 1200, STE 1200 and #1200 but no difference in ROW_ORDER. 
       - I think the issue arrises when it is obviously the same broker but ROW_ORDER and FORM_ID is 1 on each of them. 
+
+    __Going to look for records where the name and address are slighly different but it is obviously the same place (SUITE 1200 vs STE 1200) but the FORM_ID and ROW_ORDER is the same on both.__ 
+
+      - Quick Scroll through shows a few outliers where there is payment but no name or no address. Would document these if it's what was being looked for. 
+        - What would be useful to identify these is to see how much you were short by on some brokers, add those amounts to an array and see if any of these 'orphan' payments were a match to those amounts
+      - To eliminate the Suite 1200 vs STE 1200, I would use regex normally
+      - One way to go at this is to isolate a variable for each grouping. For example group based on everything except for Name. That would mean that the form_id, Row_order, address and address 2 are all the same except the name is different which would indicate a match because it will show the count in that group and how the one with the name 1St CAPITAL CORP should be included in 1ST CAPITAL CORP. with the same addresses and ROW_ORDER. 
+      - Things to not isolate because having them be different is correct:
+        1. FORM_ID
+        2. ROW_ORDER
+        3. Fees or Comm Paid
+      - Things to isolate to show errors:
+        1. INS_BROKER_NAME
+        2. INS_BROKER_US_ADDRESS1
+        3. INS_BROKER_US_ADDRESS2
+        4. INS_BROKER_US_CITY
+        5. INS_BROKER_US_STATE        
+        6. INS_BROKER_US_ZIP
+      - __I found out this is not the right approach. The correct approach is to group them based on name and address and then sort them based on the variable you want to start joining them on.__ 
+    ```
+      SELECT COUNT(*), *
+      FROM brokers
+      GROUP BY  INS_BROKER_NAME,
+         INS_BROKER_US_ADDRESS1,
+         INS_BROKER_US_ADDRESS2,
+         INS_BROKER_US_CITY,
+         INS_BROKER_US_STATE,
+         INS_BROKER_US_ZIP
+
+      or
+
+      SELECT COUNT(*), *
+      FROM brokers
+      GROUP BY  INS_BROKER_NAME,
+        INS_BROKER_FOREIGN_ADDRESS1,
+        INS_BROKER_FOREIGN_ADDRESS2,
+        INS_BROKER_FOREIGN_CITY,
+        INS_BROKER_FOREIGN_PROV_STATE,
+        INS_BROKER_FOREIGN_CNTRY,
+        INS_BROKER_FOREIGN_POSTAL_CD
+      ```   
       
-__Going to look for records where the name and address are slighly different but it is obviously the same place (SUITE 1200 vs STE 1200) but the FORM_ID and ROW_ORDER is the same on both.__ 
+
+      - Another thing is also grouping them with FORM_ID and ROW_ORDER and then sort them by count to find out which ones should be joined easily. 
+      - Either way the goal now is to run and print this in python into a file??
+      - I found this thread on stackoverflow [https://stackoverflow.com/questions/17972020/how-to-execute-raw-sql-in-sqlalchemy-flask-app](https://stackoverflow.com/questions/17972020/how-to-execute-raw-sql-in-sqlalchemy-flask-app)
+      - Used this to print the info needed
+      ```
+      result = db.execute('SELECT COUNT(*), * FROM brokers GROUP BY FORM_ID, ROW_ORDER, INS_BROKER_NAME, INS_BROKER_US_ADDRESS1, INS_BROKER_US_ADDRESS2, INS_BROKER_US_CITY, INS_BROKER_US_STATE, INS_BROKER_US_ZIP ORDER BY COUNT(*)')
+
+      for row in result:
+        print (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[16], row[17], row[18], row[19])
+      ```
+
+      
+
+    
