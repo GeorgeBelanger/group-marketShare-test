@@ -163,3 +163,70 @@
 
     
 The method I used here was to group the two results by FORM_ID, ROW_ORDER, NAME, ADDRESS1, ADDRESS2, CITY, STATE, & ZIP and then sorting by the count to tell which were double reported and which had small entry errors, such as 1ST CAPITAL CORP and 1ST CAPITAL CORPORATION or SUITE 1200 and STE 1200. 
+
+
+## 2/11/19 Monday
+  - Notes:
+  - Spark runs on scala or java, hadooop & s3
+  -  The company aggregates sales data from 22 leading insurance companies to produce a market leading analysis product.
+  - Stack: 
+  Angular vs react, 
+  Python vs ruby, 
+  Spark vs AWS S3 & EC2, 
+  Dashboards vs Google Charts,
+  SQL, 
+  HTML, 
+  ARGV, 
+  - How can I make you more money??
+  
+  
+
+
+Essential:
+  - What is the scope of what users pay for?
+    - Are users also using tableau? Or do we do all vizualiztion and intrepretation? 
+  - Does this role contribute to higher-level decisions? 
+  - Correct a fool: My sister fired the cleaner because "she shouldn't have to tell her to clean the top of the window sill"
+  - 15 minutes before I'm asking for help with my case.
+  - Whats the progression for me look like? Start front-end and get into backend or other way? 
+
+
+
+Business
+  - Any upcoming deadlines?
+  - “What is your runway?” 
+  - “What is the salary range for this role?”
+  - What kind of niches are you guys filling / discovered
+  - What is your AWS Budget?
+  - Are most of your clients local?
+  - How has the product changed over time? 
+
+
+
+Personal
+  - What are your backgrounds?
+  - “Did you take vacations this year?”
+  - “What kind of people don't work out here?”
+
+# # of sold cases and % of sold cases against elimination period, ss integration, benefit duration, 
+
+
+Technical
+  - Scrum or kanban?
+  - “Do team members have structured 1-on-1s?”  
+  - Have you guys looked at kaggle? 
+  - Is there any sort of afterwork training/learning etc? I plan to continue working 2 hours a day after work on my own projects but will use the technologies we use here
+
+  My interest in different parts of the stack:
+    - Angular Material
+    - Creating/designing Dashboards
+    - Plugging data into dashboards/d3ish library
+    - Hosting & AWS Devops
+    - Machine Learning models
+    - Creating ARGV Apis
+    - Creating lambda functions
+  
+  How do I make you more money?
+    - Addressing the wants of users
+    - 
+    - Have you considered getting into any of the following: [https://medium.com/activewizards-machine-learning-company/top-10-data-science-use-cases-in-insurance-8cade8a13ee1](https://medium.com/activewizards-machine-learning-company/top-10-data-science-use-cases-in-insurance-8cade8a13ee1)
